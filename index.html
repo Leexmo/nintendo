@@ -20,24 +20,23 @@
 </head>
 <body>
 
-    <!-- O contêiner onde o jogo vai rodar em tela cheia -->
     <div id="game"></div>
 
     <script type="text/javascript">
-        // Configurações do emulador
         EJS_player = '#game';
-        EJS_core = 'snes'; // Define o Super Nintendo
+        EJS_core = 'snes';
         
-        // Caminho do sistema oficial sem anúncios
-        EJS_pathtodata = 'https://emulatorjs.org';
+        // Desativa explicitamente telas de propaganda internas
+        EJS_AdTimer = -1; 
         
-        // Link direto da ROM do Super Mario World
-        // Nota: Substitua pelo link direto do seu arquivo .sfc ou .smc se preferir
-        EJS_gameUrl = 'https://githubusercontent.com'; 
+        // Servidor de dados alternativo livre de bloqueios
+        EJS_pathtodata = 'https://githack.com';
+        
+        // ROM estável hospedada publicamente
+        EJS_gameUrl = 'https://archive.org';
     </script>
     
-    <!-- Carrega o script inicializador -->
-    <script src="https://emulatorjs.orgloader.js"></script>
+    <script src="https://githack.comloader.js"></script>
 
 </body>
 </html>
