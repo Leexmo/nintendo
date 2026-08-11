@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Contra III - The Alien Wars</title>
+
+```
+<style>
+    html, body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #000;
+    }
+
+    #game {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        border: 0;
+    }
+
+    #fullscreenButton {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999;
+
+        background: #087cff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+
+        padding: 14px 28px;
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0,0,0,.4);
+    }
+
+    #fullscreenButton:hover {
+        background: #0066d6;
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<iframe
+    id="game"
+    src="https://www.retrogames.cc/embed/23268-contra-iii-the-alien-wars-usa.html"
+    allowfullscreen
+    allow="autoplay; fullscreen; gamepad">
+</iframe>
+
+<button id="fullscreenButton">
+    FULLSCREEN
+</button>
+
+<script>
+    const game = document.getElementById("game");
+    const button = document.getElementById("fullscreenButton");
+
+    button.addEventListener("click", async () => {
+        try {
+            await game.requestFullscreen();
+        } catch (error) {
+            console.error("Não foi possível entrar em fullscreen:", error);
+        }
+    });
+
+    document.addEventListener("fullscreenchange", () => {
+        if (document.fullscreenElement) {
+            button.style.display = "none";
+        } else {
+            button.style.display = "block";
+        }
+    });
+</script>
+```
+
+</body>
+</html>
