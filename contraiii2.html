@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Contra III - The Alien Wars</title>
+
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+        }
+
+        #game {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            border: 0;
+        }
+
+        /*
+         * Camada invisível usada somente para capturar
+         * o primeiro toque/clique.
+         */
+        #fullscreenOverlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: transparent;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <iframe
+        id="game"
+        src="https://www.retrogames.cc/embed/23268-contra-iii-the-alien-wars-usa.html"
+        allowfullscreen
+        allow="autoplay; fullscreen; gamepad">
+    </iframe>
+
+    <div id="fullscreenOverlay"></div>
+
+    <script>
+        const game = document.getElementById("game");
+        const overlay = document.getElementById("fullscreenOverlay");
+
+        overlay.addEventListener("pointerdown", async () => {
+
+            try {
+                await game.requestFullscreen();
+
+                // Remove a camada depois que entrar em fullscreen
+                overlay.remove();
+
+            } catch (error) {
+
+                console.error(
+                    "Não foi possível entrar em fullscreen:",
+                    error
+                );
+
+            }
+
+        }, { once: true });
+    </script>
+
+</body>
+</html>
